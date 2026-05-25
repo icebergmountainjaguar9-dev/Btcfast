@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BTC Unlimited 123</title>
+    <meta
+      name="description"
+      content="Submit a Bitcoin transaction hash to simulate acceleration through multiple mempool sources."
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="hero">
+        <div>
+          <p class="eyebrow">BTC Unlimited 123</p>
+          <h1>Accelerate your Bitcoin transaction</h1>
+          <p class="subhead">
+            Enter your Bitcoin transaction hash and request a mempool boost from multiple sources.
+          </p>
+        </div>
+      </header>
+
+      <main class="content-wrapper">
+        <section class="card form-card">
+          <h2>Transaction accelerator</h2>
+          <p class="card-copy">
+            Paste your Bitcoin transaction hash below. This site simulates a multi-source mempool acceleration
+            request and returns a success confirmation.
+          </p>
+          <form id="txForm" class="tx-form" novalidate>
+            <label for="txHash">Bitcoin transaction hash</label>
+            <input
+              id="txHash"
+              name="txHash"
+              type="text"
+              placeholder="e.g. 4f3b7b..."
+              autocomplete="off"
+              required
+              minlength="64"
+              maxlength="64"
+            />
+            <button type="submit">Accelerate transaction</button>
+          </form>
+          <div id="result" class="result hidden" aria-live="polite"></div>
+        </section>
+
+        <section class="card info-card">
+          <div class="tabs" role="tablist" aria-label="Information and donation tabs">
+            <button type="button" class="tab-button active" data-target="infoPanel" role="tab" aria-selected="true">How the acceleration works</button>
+            <button type="button" class="tab-button" data-target="donationPanel" role="tab" aria-selected="false">BTC donations</button>
+          </div>
+
+          <div id="infoPanel" class="tab-panel active">
+            <h2>How the acceleration works</h2>
+            <ul class="features">
+              <li>Validates your Bitcoin transaction hash.</li>
+              <li>Simulates requests to multiple mempool acceleration sources.</li>
+              <li>Always returns a successful acceleration response.</li>
+              <li>Ready for deployment on Vercel as a static site.</li>
+            </ul>
+          </div>
+
+          <div id="donationPanel" class="tab-panel">
+            <h2>BTC donations</h2>
+            <p class="card-copy">
+              If you want to support the project, copy the Bitcoin address below and paste it into your wallet.
+            </p>
+            <div class="donation-box">
+              <code id="btcAddress">bc1qvxukeasjgkz7nzvrvk9a9er7a33rstrdv5u4e5</code>
+              <button type="button" id="copyAddressBtn">Copy address</button>
+            </div>
+            <div id="donationFeedback" class="donation-feedback" aria-live="polite"></div>
+          </div>
+        </section>
+      </main>
+
+      <footer class="footer">btcunlimited123.com</footer>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>

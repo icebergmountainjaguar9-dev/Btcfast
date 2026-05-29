@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BTC Unlimited 123 | Mining Simulator</title>
+    <meta
+      name="description"
+      content="Simulate Bitcoin mining and calculate the percentage of mined BTC sent to your address."
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="hero">
+        <div>
+          <p class="eyebrow">BTC Unlimited 123</p>
+          <nav class="site-nav" aria-label="Primary navigation">
+            <a class="nav-link" href="index.html">Home</a>
+            <a class="nav-link active" href="mine.html">Mine Bitcoin</a>
+          </nav>
+          <h1>Bitcoin mining simulator</h1>
+          <p class="subhead">
+            Simulate a mining reward and calculate the share sent to your Bitcoin address.
+          </p>
+        </div>
+      </header>
+
+      <main class="content-wrapper mine-wrapper">
+        <section class="card form-card">
+          <h2>Start mining</h2>
+          <p class="card-copy">
+            Enter your Bitcoin address and choose the percentage share to send. This page simulates an estimated mining payout and shows the amount that would go to your address.
+          </p>
+          <form id="mineForm" class="tx-form" novalidate>
+            <label for="btcAddress">Bitcoin address</label>
+            <input
+              id="btcAddress"
+              name="btcAddress"
+              type="text"
+              placeholder="bc1q..."
+              autocomplete="off"
+              required
+            />
+
+            <label for="payoutShare">Payout share</label>
+            <input id="payoutShare" name="payoutShare" type="range" min="1" max="50" value="15" step="1" />
+            <div class="range-value"><span id="shareValue">15</span>% of mined BTC sent to your address</div>
+
+            <button type="submit">Start mining</button>
+          </form>
+          <div id="mineResult" class="result hidden" aria-live="polite"></div>
+        </section>
+
+        <section class="card info-card">
+          <h2>Mining payout estimate</h2>
+          <p class="card-copy">
+            This simulator creates an estimated mining reward and payout share. It does not perform live Bitcoin mining or send real BTC.
+          </p>
+          <div class="address-box">
+            <code id="simAddress">Enter your Bitcoin address to see the payout breakdown.</code>
+            <button type="button" id="copyPayoutAddressBtn">Copy address</button>
+          </div>
+          <div id="mineFeedback" class="donation-feedback" aria-live="polite"></div>
+        </section>
+      </main>
+
+      <footer class="footer">
+        <a href="index.html">Back to accelerator</a>
+      </footer>
+    </div>
+    <script src="mine.js"></script>
+  </body>
+</html>

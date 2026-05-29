@@ -35,6 +35,74 @@ body {
   padding: 28px 0 12px;
 }
 
+.site-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin: 18px 0 0;
+}
+
+.nav-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 0 16px;
+  border-radius: 14px;
+  color: #dbe1ff;
+  text-decoration: none;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+
+.nav-link.active,
+.nav-link:hover {
+  background: rgba(124, 130, 255, 0.12);
+  border-color: rgba(124, 130, 255, 0.35);
+  color: #fff;
+}
+
+.range-value {
+  color: #dbe1ff;
+  font-size: 0.95rem;
+  margin-top: -8px;
+  margin-bottom: 16px;
+}
+
+.address-box {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  align-items: center;
+  margin-top: 16px;
+  padding: 18px 20px;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.address-box code {
+  flex: 1 1 auto;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  font-size: 0.95rem;
+  color: #e4e9ff;
+  word-break: break-all;
+}
+
+.footer a {
+  color: #7c82ff;
+  text-decoration: none;
+}
+
+.footer a:hover,
+.footer a:focus-visible {
+  text-decoration: underline;
+}
+
+.mine-wrapper {
+  grid-template-columns: 1.3fr 1fr;
+}
+
 a.body,
 p,
 ul,

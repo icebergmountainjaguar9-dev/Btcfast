@@ -28,7 +28,7 @@ btn.addEventListener("click", () => {
     running = false;
 
     btn.textContent =
-      "⛏️ Start Demo Mining";
+      "⛏️ Mine TWT";
 
     clearInterval(timer);
   }

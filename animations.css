@@ -1,0 +1,19 @@
+.float {
+  animation: float 2s ease-in-out infinite;
+}
+
+.pulse {
+  animation: pulse 1s infinite;
+}
+
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-8px); }
+  100% { transform: translateY(0px); }
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.08); }
+  100% { transform: scale(1); }
+}

@@ -1,3 +1,11 @@
+#mineTwtBtn {
+  cursor: pointer;
+  padding: 14px 20px;
+}
+
+#status {
+  margin-top: 10px;
+}
 body {
   font-family: Arial, sans-serif;
   max-width: 700px;

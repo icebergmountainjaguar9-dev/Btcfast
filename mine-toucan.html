@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mine Toucan Protocol</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="container">
+
+    <h1>Mine Toucan Protocol (BCT)</h1>
+
+    <p>
+        Simulated Polygon mining dashboard for Toucan Protocol.
+    </p>
+
+    <div class="card">
+
+        <label>Wallet Address</label>
+        <input
+            id="wallet"
+            type="text"
+            placeholder="0x..."
+        >
+
+        <label>Mining Power (%)</label>
+        <input
+            id="power"
+            type="range"
+            min="1"
+            max="100"
+            value="50"
+        >
+
+        <button onclick="startMining()">
+            Start Mining
+        </button>
+
+    </div>
+
+    <div class="card">
+
+        <h2>Token Information</h2>
+
+        <p><strong>Name:</strong> Toucan Protocol BCT</p>
+
+        <p><strong>Network:</strong> Polygon</p>
+
+        <p>
+            <strong>Contract:</strong><br>
+            0x2F800Db0fdb5223b3C3f354886d907A671414A7F
+        </p>
+
+    </div>
+
+    <div class="card">
+
+        <h2>Mining Status</h2>
+
+        <div id="status">
+            Ready
+        </div>
+
+        <div id="balance">
+            0.0000 BCT
+        </div>
+
+    </div>
+
+</div>
+
+<script src="js/toucan-mining.js"></script>
+
+</body>
+</html>

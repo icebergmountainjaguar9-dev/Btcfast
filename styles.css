@@ -1,3 +1,18 @@
+.token-header {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.token-icon {
+    display: block;
+    margin: 0 auto 10px;
+}
+
+.kaomoji {
+    font-size: 24px;
+    font-weight: bold;
+    color: #6666ff;
+}
 .token-header{
 display:flex;
 align-items:center;

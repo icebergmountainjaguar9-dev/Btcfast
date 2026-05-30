@@ -1,3 +1,46 @@
+.container {
+    max-width: 900px;
+    margin: auto;
+    padding: 20px;
+}
+
+.card {
+    background: #10182f;
+    border-radius: 20px;
+    padding: 20px;
+    margin-top: 20px;
+}
+
+.nav-btn {
+    display: inline-block;
+    padding: 12px 20px;
+    border-radius: 16px;
+    text-decoration: none;
+    margin: 5px;
+    background: linear-gradient(
+        90deg,
+        #6f79ff,
+        #8c8cff
+    );
+    color: white;
+}
+
+input {
+    width: 100%;
+    padding: 14px;
+    margin: 10px 0;
+    border-radius: 12px;
+    border: 1px solid #333;
+}
+
+button {
+    width: 100%;
+    padding: 15px;
+    margin-top: 10px;
+    border: none;
+    border-radius: 14px;
+    cursor: pointer;
+}
 .nav-btn {
     display:inline-block;
     padding:12px 20px;

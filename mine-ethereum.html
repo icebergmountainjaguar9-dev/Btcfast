@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Ethereum Mining Simulator</title>
+
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="container">
+
+    <h1>Mine Ethereum</h1>
+
+    <p>
+        Ethereum Mining Simulator Dashboard
+    </p>
+
+    <div class="card">
+
+        <h2>Ethereum Wallet</h2>
+
+        <input
+            id="wallet"
+            type="text"
+            placeholder="0x..."
+        >
+
+        <label>Mining Speed</label>
+
+        <input
+            id="speed"
+            type="range"
+            min="1"
+            max="100"
+            value="50"
+        >
+
+        <button onclick="startMining()">
+            Start Ethereum Mining
+        </button>
+
+        <button onclick="stopMining()">
+            Stop Mining
+        </button>
+
+    </div>
+
+    <div class="card">
+
+        <h2>Mining Status</h2>
+
+        <p id="status">
+            Ready
+        </p>
+
+        <p id="hashrate">
+            Hashrate: 0 MH/s
+        </p>
+
+        <p id="balance">
+            0.000000 ETH
+        </p>
+
+    </div>
+
+</div>
+
+<script src="js/ethereum-mining.js"></script>
+
+</body>
+</html>

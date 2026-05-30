@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AVAX Rewards Simulator</title>
+  <link rel="stylesheet" href="avalanche.css">
+</head>
+<body>
+
+  <div class="container">
+    <h1>Avalanche Rewards Simulator</h1>
+
+    <p>
+      This simulator estimates staking rewards.
+      It does not stake or earn real AVAX.
+    </p>
+
+    <input
+      id="walletAddress"
+      type="text"
+      placeholder="Enter AVAX wallet address"
+    >
+
+    <input
+      id="stakeAmount"
+      type="number"
+      placeholder="AVAX Amount"
+      value="100"
+    >
+
+    <button id="startBtn">
+      Start Simulation
+    </button>
+
+    <div class="progress">
+      <div id="progressBar"></div>
+    </div>
+
+    <div id="result"></div>
+  </div>
+
+  <script src="avalanche.js"></script>
+
+</body>
+</html>

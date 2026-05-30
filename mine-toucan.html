@@ -126,27 +126,3 @@
   </svg>
 
   <div class="kaomoji">(•ө•)♡</div>
-</div>
-document
-  .getElementById("startMiningBtn")
-  .addEventListener("click", async () => {
-    try {
-      const response = await fetch("/api/start-mining", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json"
-        }
-      });
-
-      const data = await response.json();
-
-      if (data.success) {
-        alert("Mining started");
-      } else {
-        alert(data.message);
-      }
-    } catch (err) {
-      console.error("Mining error:", err);
-      alert("Failed to start mining");
-    }
-  });

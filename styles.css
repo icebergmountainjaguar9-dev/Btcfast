@@ -1,3 +1,33 @@
+.token-header{
+display:flex;
+align-items:center;
+gap:15px;
+margin-bottom:20px;
+}
+
+.token-icon{
+width:72px;
+height:72px;
+object-fit:contain;
+
+animation: floatIcon 3s ease-in-out infinite;
+}
+
+@keyframes floatIcon{
+
+0%{
+transform:translateY(0px);
+}
+
+50%{
+transform:translateY(-8px);
+}
+
+100%{
+transform:translateY(0px);
+}
+
+}
 .mining-panel{
     margin-top:20px;
 }

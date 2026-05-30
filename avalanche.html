@@ -44,3 +44,40 @@
 
 </body>
 </html>
+<div class="avalanche-header">
+
+  <svg class="avalanche-icon" width="120" height="120" viewBox="0 0 120 120">
+    <polygon points="20,100 60,20 100,100" fill="#8BC6EC"/>
+    <polygon points="40,100 75,40 110,100" fill="#6FA8DC"/>
+
+    <polygon points="50,40 60,20 70,40" fill="white"/>
+    <polygon points="67,55 75,40 83,55" fill="white"/>
+
+    <circle cx="95" cy="25" r="10" fill="#FFD700"/>
+  </svg>
+
+  <div class="avalanche-kaomoji">
+    ᨒ↟ 𖠰 ❄️ (≧▽≦) 🏔️
+  </div>
+
+</div>
+<div class="avalanche-kaomoji">
+    🏂 ❄️ ╰(▔∀▔)╯ ❄️ 🏔️
+</div>
+function startAvalancheMining() {
+
+    document.querySelector('.avalanche-icon')
+        .classList.add('mining-active');
+
+    status.textContent =
+        "🏔️ Avalanche mining in progress...";
+}
+
+function stopAvalancheMining() {
+
+    document.querySelector('.avalanche-icon')
+        .classList.remove('mining-active');
+
+    status.textContent =
+        "⏹️ Avalanche mining stopped";
+}

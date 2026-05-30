@@ -1,3 +1,28 @@
+.avalanche-header {
+    text-align: center;
+    margin: 25px 0;
+}
+
+.avalanche-icon {
+    display: block;
+    margin: 0 auto 15px;
+}
+
+.avalanche-kaomoji {
+    font-size: 24px;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+@keyframes avalancheBounce {
+    0%   { transform: translateY(0); }
+    50%  { transform: translateY(-8px); }
+    100% { transform: translateY(0); }
+}
+
+.avalanche-icon {
+    animation: avalancheBounce 2s infinite;
+}
 .token-header {
     text-align: center;
     margin: 20px 0;

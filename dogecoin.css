@@ -1,0 +1,66 @@
+.miner-container {
+
+    background: #0c122b;
+
+    border-radius: 20px;
+
+    padding: 40px;
+
+    color: white;
+}
+
+.miner-container h1 {
+
+    color: #c2a633;
+}
+
+.form-group {
+
+    margin-bottom: 20px;
+}
+
+input,
+select {
+
+    width: 100%;
+
+    padding: 14px;
+
+    border-radius: 10px;
+
+    border: 1px solid #333;
+
+    background: #121c3d;
+
+    color: white;
+}
+
+#startMining {
+
+    width: 100%;
+
+    padding: 15px;
+
+    border: none;
+
+    border-radius: 12px;
+
+    cursor: pointer;
+
+    background: #c2a633;
+
+    color: black;
+
+    font-weight: bold;
+}
+
+.success {
+
+    margin-top: 20px;
+
+    background: #152447;
+
+    padding: 20px;
+
+    border-radius: 12px;
+}

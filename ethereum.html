@@ -1,0 +1,34 @@
+<input id="ethWallet" placeholder="Ethereum Wallet">
+
+<button id="ethStart">
+    Start Mining
+</button>
+
+<button id="ethStop">
+    Stop Mining
+</button>
+
+<progress id="ethProgress" value="0" max="100"></progress>
+
+<div id="ethStatus">
+    Ready to mine
+</div>
+
+<div id="ethBalance">
+    0.000000 ETH
+</div>
+
+<script src="js/mining-engine.js"></script>
+
+<script>
+createMiner({
+    token: "Ethereum",
+    symbol: "ETH",
+    wallet: "ethWallet",
+    startButton: "ethStart",
+    stopButton: "ethStop",
+    status: "ethStatus",
+    balance: "ethBalance",
+    progress: "ethProgress"
+});
+</script>

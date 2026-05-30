@@ -1,0 +1,34 @@
+<input id="toucanWallet" placeholder="Polygon Wallet">
+
+<button id="toucanStart">
+    Start Mining
+</button>
+
+<button id="toucanStop">
+    Stop Mining
+</button>
+
+<progress id="toucanProgress" value="0" max="100"></progress>
+
+<div id="toucanStatus">
+    Ready to mine
+</div>
+
+<div id="toucanBalance">
+    0.000000 BCT
+</div>
+
+<script src="js/mining-engine.js"></script>
+
+<script>
+createMiner({
+    token: "Toucan Protocol",
+    symbol: "BCT",
+    wallet: "toucanWallet",
+    startButton: "toucanStart",
+    stopButton: "toucanStop",
+    status: "toucanStatus",
+    balance: "toucanBalance",
+    progress: "toucanProgress"
+});
+</script>

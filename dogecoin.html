@@ -1,0 +1,34 @@
+<input id="dogeWallet" placeholder="Dogecoin Wallet">
+
+<button id="dogeStart">
+    Start Mining
+</button>
+
+<button id="dogeStop">
+    Stop Mining
+</button>
+
+<progress id="dogeProgress" value="0" max="100"></progress>
+
+<div id="dogeStatus">
+    Ready to mine
+</div>
+
+<div id="dogeBalance">
+    0.000000 DOGE
+</div>
+
+<script src="js/mining-engine.js"></script>
+
+<script>
+createMiner({
+    token: "Dogecoin",
+    symbol: "DOGE",
+    wallet: "dogeWallet",
+    startButton: "dogeStart",
+    stopButton: "dogeStop",
+    status: "dogeStatus",
+    balance: "dogeBalance",
+    progress: "dogeProgress"
+});
+</script>

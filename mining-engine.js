@@ -115,3 +115,65 @@ function addLog(message){
 
     log.prepend(div);
 }
+function createMiner(config) {
+    const startBtn = document.getElementById(config.startButton);
+    const stopBtn = document.getElementById(config.stopButton);
+    const status = document.getElementById(config.status);
+    const balance = document.getElementById(config.balance);
+    const wallet = document.getElementById(config.wallet);
+    const progress = document.getElementById(config.progress);
+
+    let amount = 0;
+    let mining = false;
+    let interval;
+
+    function startMining() {
+
+        if (!wallet.value.trim()) {
+            status.textContent = "⚠ Please enter your wallet address first";
+            return;
+        }
+
+        if (mining) return;
+
+        mining = true;
+
+        status.textContent = `⛏ Mining ${config.token}...`;
+
+        interval = setInterval(() => {
+
+            amount += Math.random() * 0.05;
+
+            balance.textContent =
+                amount.toFixed(6) + " " + config.symbol;
+
+            if (progress) {
+
+                let value = parseInt(progress.value) || 0;
+
+                value += 5;
+
+                if (value > 100) value = 0;
+
+                progress.value = value;
+            }
+
+        }, 500);
+    }
+
+    function stopMining() {
+
+        mining = false;
+
+        clearInterval(interval);
+
+        status.textContent =
+            `✅ ${config.token} mining stopped`;
+    }
+
+    startBtn.addEventListener("click", startMining);
+
+    if (stopBtn) {
+        stopBtn.addEventListener("click", stopMining);
+    }
+}

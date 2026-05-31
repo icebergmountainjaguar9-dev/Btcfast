@@ -1,6 +1,6 @@
 // toucan_execution_probe.js
 
-alert("TOUCAN EXECUTION PROBE LOADED");
+// alert("TOUCAN EXECUTION PROBE LOADED");
 
 document.body.style.backgroundColor =
   "#e8ffe8";

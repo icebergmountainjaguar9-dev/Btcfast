@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mine Tixl Token</title>
+
+<style>
+body{
+    background:#dff5ea;
+    font-family:Arial,sans-serif;
+    text-align:center;
+    margin:0;
+    padding:20px;
+}
+
+.container{
+    max-width:700px;
+    margin:auto;
+}
+
+h1{
+    color:#4c4cff;
+}
+
+input{
+    width:90%;
+    max-width:500px;
+    padding:12px;
+    border-radius:12px;
+    border:none;
+    margin-bottom:15px;
+}
+
+button{
+    background:#6366f1;
+    color:white;
+    border:none;
+    padding:15px 30px;
+    border-radius:20px;
+    font-size:18px;
+    cursor:pointer;
+}
+
+button:hover{
+    opacity:0.9;
+}
+
+#miner{
+    display:none;
+    margin-top:20px;
+}
+
+#progressBox{
+    width:100%;
+    background:#ccc;
+    border-radius:20px;
+    overflow:hidden;
+}
+
+#progress{
+    width:0%;
+    height:30px;
+    background:limegreen;
+    transition:0.5s;
+}
+
+#hashrate{
+    margin-top:15px;
+    font-size:22px;
+    font-weight:bold;
+}
+
+#earned{
+    font-size:26px;
+    color:#4c4cff;
+    margin-top:15px;
+}
+
+canvas{
+    background:white;
+    border-radius:20px;
+    margin-top:20px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>⚡ Mine Tixl Token (TXL)</h1>
+
+<input
+id="wallet"
+placeholder="Enter Polygon Wallet Address"
+>
+
+<br>
+
+<button onclick="startMining()">
+Start Mining TXL
+</button>
+
+<div id="miner">
+
+<div id="progressBox">
+<div id="progress"></div>
+</div>
+
+<div id="hashrate">
+Hashrate: 0 MH/s
+</div>
+
+<div id="earned">
+0.0000 TXL
+</div>
+
+<canvas id="animation" width="500" height="200"></canvas>
+
+</div>
+
+</div>
+
+<script>
+
+let earnings=0;
+let progress=0;
+
+function startMining(){
+
+let wallet=document.getElementById("wallet").value.trim();
+
+if(wallet===""){
+alert("Please enter your Polygon address first.");
+return;
+}
+
+document.getElementById("miner").style.display="block";
+
+setInterval(()=>{
+
+let speed=(Math.random()*100+50).toFixed(2);
+
+document.getElementById("hashrate").innerHTML=
+"Hashrate: "+speed+" MH/s";
+
+progress+=5;
+
+if(progress>100){
+progress=0;
+earnings+=Math.random()*0.05;
+}
+
+document.getElementById("progress").style.width=
+progress+"%";
+
+document.getElementById("earned").innerHTML=
+earnings.toFixed(4)+" TXL";
+
+},1000);
+
+runAnimation();
+
+}
+
+function runAnimation(){
+
+const canvas=document.getElementById("animation");
+const ctx=canvas.getContext("2d");
+
+let x=0;
+
+setInterval(()=>{
+
+ctx.clearRect(0,0,canvas.width,canvas.height);
+
+for(let i=0;i<15;i++){
+
+ctx.fillStyle="gold";
+
+ctx.beginPath();
+
+ctx.arc(
+((i*60)+x)%600,
+100,
+12,
+0,
+Math.PI*2
+);
+
+ctx.fill();
+
+ctx.fillStyle="black";
+ctx.fillRect(((i*60)+x)%600-5,95,10,10);
+
+}
+
+ctx.fillStyle="#4c4cff";
+ctx.font="24px Arial";
+ctx.fillText("TXL Mining Simulation",120,40);
+
+x+=5;
+
+},40);
+
+}
+
+</script>
+
+</body>
+</html>

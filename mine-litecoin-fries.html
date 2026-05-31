@@ -126,6 +126,10 @@ type="text">
 Start Mining
 </button>
 
+<button onclick="releaseLTC()" id="releaseBtn">
+Release Litecoin To Address
+</button>
+
 <div class="machine">
 
 <div class="hopper"></div>
@@ -178,3 +182,60 @@ setInterval(()=>{
 
 </body>
 </html>
+<script>
+let mining=false;
+let ltc=0;
+
+function startMining(){
+
+    const wallet=document.getElementById("wallet").value.trim();
+
+    if(wallet===""){
+        alert("Please enter your Litecoin address first.");
+        return;
+    }
+
+    if(mining) return;
+
+    mining=true;
+
+    document.getElementById("stats").innerHTML=
+    'Mining Litecoin...<br>0.00000000 LTC';
+
+    setInterval(()=>{
+        ltc += Math.random()*0.00025;
+
+        document.getElementById("stats").innerHTML=
+        'Mining Litecoin...<br>' +
+        ltc.toFixed(8) +
+        ' LTC';
+    },1000);
+}
+
+function releaseLTC(){
+
+    const wallet=document.getElementById("wallet").value.trim();
+
+    if(wallet===""){
+        alert("Enter a Litecoin address first.");
+        return;
+    }
+
+    if(ltc <= 0){
+        alert("No simulated Litecoin available.");
+        return;
+    }
+
+    document.getElementById("releaseStatus").innerHTML =
+        "Simulated release of " +
+        ltc.toFixed(8) +
+        " LTC to:<br><b>" +
+        wallet +
+        "</b>";
+
+    ltc = 0;
+
+    document.getElementById("stats").innerHTML =
+        "Mining stopped.<br>0.00000000 LTC";
+}
+</script>

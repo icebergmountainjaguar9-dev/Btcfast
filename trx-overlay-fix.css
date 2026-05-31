@@ -1,0 +1,29 @@
+/* Prevent overlay from blocking clicks */
+
+.toucan-loader,
+.toucan-overlay,
+.loader-banner,
+.loader,
+#toucan-loader {
+    pointer-events: none !important;
+}
+
+/* Force TRX button above overlays */
+
+#mine-trx,
+.mine-trx {
+    position: relative !important;
+    z-index: 99999 !important;
+    pointer-events: auto !important;
+}
+
+/* Remove right-side black gap */
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    width: 100%;
+    max-width: 100%;
+}

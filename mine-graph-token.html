@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mine Graph Token</title>
+<link rel="stylesheet" href="graph-token.css">
+</head>
+<body>
+
+<h1>📈 Mine Graph Token (Polygon)</h1>
+
+<div class="wallet-box">
+    <input type="text" id="wallet"
+        placeholder="Enter Polygon Wallet Address">
+</div>
+
+<button id="startBtn">Start Mining</button>
+
+<div class="stats">
+    <p>Coordinates Found: <span id="coords">0</span></p>
+    <p>Graph Rewards: <span id="reward">0.0000 GRT</span></p>
+</div>
+
+<canvas id="graphCanvas" width="900" height="500"></canvas>
+
+<script src="graph-token.js"></script>
+
+</body>
+</html>

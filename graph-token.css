@@ -1,0 +1,42 @@
+body{
+    background:#e8fff0;
+    font-family:Arial,sans-serif;
+    text-align:center;
+}
+
+h1{
+    color:#4b5cff;
+}
+
+.wallet-box{
+    margin:20px;
+}
+
+input{
+    width:350px;
+    padding:10px;
+    border-radius:10px;
+    border:none;
+}
+
+button{
+    padding:12px 30px;
+    border:none;
+    border-radius:12px;
+    background:#5a62ff;
+    color:white;
+    font-size:18px;
+    cursor:pointer;
+}
+
+.stats{
+    margin:20px;
+    font-size:20px;
+}
+
+canvas{
+    background:white;
+    border:3px solid #5a62ff;
+    border-radius:15px;
+    margin-top:20px;
+}

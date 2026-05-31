@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Mine Mask Network</title>
+
+<style>
+body{
+    background:#0d1117;
+    color:white;
+    font-family:Arial,sans-serif;
+    text-align:center;
+    overflow:hidden;
+}
+
+h1{
+    margin-top:20px;
+}
+
+#miner{
+    font-size:80px;
+    margin-top:20px;
+    animation:bounce 1s infinite;
+}
+
+#hashrate{
+    font-size:24px;
+    color:#00ff88;
+}
+
+#earnings{
+    font-size:30px;
+    color:gold;
+    margin-top:15px;
+}
+
+#startBtn{
+    padding:15px 40px;
+    font-size:20px;
+    border:none;
+    border-radius:12px;
+    cursor:pointer;
+    background:#00ff88;
+}
+
+#maskAddress{
+    width:350px;
+    padding:10px;
+    font-size:16px;
+    margin:15px;
+    border-radius:10px;
+}
+
+.floatingMask{
+    position:absolute;
+    font-size:50px;
+    animation:float 8s linear infinite;
+}
+
+.coin{
+    position:absolute;
+    font-size:30px;
+    animation:fall 5s linear infinite;
+}
+
+@keyframes bounce{
+    50%{transform:translateY(-15px);}
+}
+
+@keyframes float{
+    from{
+        transform:translateY(100vh);
+    }
+    to{
+        transform:translateY(-150px);
+    }
+}
+
+@keyframes fall{
+    from{
+        transform:translateY(-100px);
+    }
+    to{
+        transform:translateY(110vh);
+    }
+}
+</style>
+</head>
+
+<body>
+
+<h1>🎭 MASK NETWORK POLYGON MINING</h1>
+
+<div id="miner">🎭🥷</div>
+
+<input
+id="maskAddress"
+placeholder="Enter Polygon MASK Address"
+/>
+
+<br>
+
+<button id="startBtn" onclick="startMining()">
+Start Mining
+</button>
+
+<div id="hashrate">
+Hashrate: 0 MH/s
+</div>
+
+<div id="earnings">
+MASK Earned: 0.0000
+</div>
+
+<script>
+
+let mining=false;
+let earned=0;
+
+function startMining(){
+
+const addr=document.getElementById("maskAddress").value;
+
+if(addr===""){
+alert("Please enter your Polygon MASK address.");
+return;
+}
+
+if(mining) return;
+
+mining=true;
+
+setInterval(()=>{
+
+let speed=(Math.random()*800+400).toFixed(2);
+
+document.getElementById("hashrate").innerHTML=
+"Hashrate: "+speed+" MH/s";
+
+earned+=Math.random()*0.025;
+
+document.getElementById("earnings").innerHTML=
+"MASK Earned: "+earned.toFixed(4);
+
+},1000);
+
+}
+</script>
+
+<script>
+
+/* Floating Masks */
+
+for(let i=0;i<12;i++){
+
+let m=document.createElement("div");
+
+m.className="floatingMask";
+
+m.innerHTML=Math.random()>0.5 ? "🎭" : "🥷";
+
+m.style.left=Math.random()*100+"vw";
+m.style.animationDelay=Math.random()*8+"s";
+
+document.body.appendChild(m);
+
+}
+
+/* Falling Coins */
+
+for(let i=0;i<40;i++){
+
+let c=document.createElement("div");
+
+c.className="coin";
+
+c.innerHTML="🪙";
+
+c.style.left=Math.random()*100+"vw";
+c.style.animationDelay=Math.random()*5+"s";
+
+document.body.appendChild(c);
+
+}
+
+</script>
+
+</body>
+</html>

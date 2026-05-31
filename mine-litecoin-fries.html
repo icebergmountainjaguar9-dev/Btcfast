@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mine Litecoin</title>
+
+<style>
+body{
+    margin:0;
+    background:#111;
+    color:white;
+    font-family:Arial,sans-serif;
+    text-align:center;
+}
+
+header{
+    background:#1a1a1a;
+    padding:15px;
+    font-size:28px;
+    font-weight:bold;
+    border-bottom:2px solid #444;
+}
+
+.container{
+    max-width:900px;
+    margin:auto;
+    padding:20px;
+}
+
+input{
+    width:80%;
+    max-width:500px;
+    padding:12px;
+    border:none;
+    border-radius:8px;
+    margin:10px;
+}
+
+button{
+    padding:12px 25px;
+    font-size:18px;
+    border:none;
+    border-radius:8px;
+    cursor:pointer;
+    background:#345dff;
+    color:white;
+}
+
+button:hover{
+    opacity:0.9;
+}
+
+.machine{
+    width:320px;
+    height:220px;
+    margin:30px auto;
+    position:relative;
+    border:4px solid #777;
+    border-radius:20px;
+    background:#2a2a2a;
+    overflow:hidden;
+}
+
+.hopper{
+    position:absolute;
+    top:10px;
+    left:90px;
+    width:140px;
+    height:60px;
+    background:#555;
+    border-radius:10px;
+}
+
+.fry{
+    position:absolute;
+    width:12px;
+    height:40px;
+    background:gold;
+    border-radius:4px;
+    animation:drop 3s linear infinite;
+}
+
+@keyframes drop{
+    0%{
+        top:20px;
+        opacity:0;
+    }
+    20%{
+        opacity:1;
+    }
+    100%{
+        top:180px;
+        opacity:1;
+    }
+}
+
+#stats{
+    margin-top:20px;
+    font-size:22px;
+}
+
+.running{
+    color:#7CFF7C;
+}
+</style>
+</head>
+<body>
+
+<header>⛏️ Mine Litecoin</header>
+
+<div class="container">
+
+<h2>Litecoin Mining Simulation</h2>
+
+<p>Enter your Litecoin wallet address:</p>
+
+<input
+id="wallet"
+placeholder="Enter Litecoin Address"
+type="text">
+
+<br>
+
+<button onclick="startMining()">
+Start Mining
+</button>
+
+<div class="machine">
+
+<div class="hopper"></div>
+
+<div class="fry" style="left:90px;animation-delay:0s;"></div>
+<div class="fry" style="left:120px;animation-delay:.5s;"></div>
+<div class="fry" style="left:150px;animation-delay:1s;"></div>
+<div class="fry" style="left:180px;animation-delay:1.5s;"></div>
+<div class="fry" style="left:210px;animation-delay:2s;"></div>
+
+</div>
+
+<div id="stats">
+Mining not started.
+</div>
+
+</div>
+
+<script>
+let mining=false;
+let ltc=0;
+
+function startMining(){
+
+const wallet=document.getElementById("wallet").value.trim();
+
+if(wallet===""){
+    alert("Please enter your Litecoin address first.");
+    return;
+}
+
+if(mining) return;
+
+mining=true;
+
+document.getElementById("stats").innerHTML=
+'<span class="running">Mining Litecoin...</span><br>0.00000000 LTC';
+
+setInterval(()=>{
+    ltc += Math.random()*0.00025;
+
+    document.getElementById("stats").innerHTML=
+    '<span class="running">Mining Litecoin...</span><br>'
+    + ltc.toFixed(8)
+    + ' LTC';
+},1000);
+
+}
+</script>
+
+</body>
+</html>

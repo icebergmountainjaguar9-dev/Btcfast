@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>SwissBorg Polygon Scan Mining</title>
+
+<style>
+body{
+    margin:0;
+    background:#081018;
+    color:white;
+    font-family:Arial,sans-serif;
+    text-align:center;
+    overflow:hidden;
+}
+
+header{
+    padding:20px;
+    background:#00d084;
+    font-size:32px;
+    font-weight:bold;
+}
+
+#minerBox{
+    margin:30px auto;
+    width:90%;
+    max-width:900px;
+    background:#101b2e;
+    border-radius:20px;
+    padding:20px;
+}
+
+button{
+    background:#00d084;
+    border:none;
+    padding:15px 40px;
+    border-radius:10px;
+    font-size:22px;
+    cursor:pointer;
+    color:white;
+}
+
+#status{
+    margin-top:20px;
+    font-size:24px;
+}
+
+#progress{
+    font-size:36px;
+    margin-top:20px;
+    color:#00ff99;
+}
+
+.bill{
+    position:fixed;
+    font-size:42px;
+    animation:floatMoney linear infinite;
+    pointer-events:none;
+}
+
+@keyframes floatMoney{
+    from{
+        transform:translateY(110vh) rotate(0deg);
+    }
+    to{
+        transform:translateY(-120vh) rotate(360deg);
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+🇨🇭 SwissBorg Polygon Scan Mining
+</header>
+
+<div id="minerBox">
+
+<h2>SwissBorg Mining Simulator</h2>
+
+<button onclick="startMining()">
+Start Mining
+</button>
+
+<div id="status">
+Waiting...
+</div>
+
+<div id="progress">
+0 SBORG
+</div>
+
+</div>
+
+<script src="swissborg-miner.js"></script>
+
+</body>
+</html>

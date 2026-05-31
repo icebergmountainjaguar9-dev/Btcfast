@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Uniswap Token Mining Simulator</title>
+
+<style>
+body{
+    margin:0;
+    background:#0f172a;
+    color:white;
+    font-family:Arial,sans-serif;
+    text-align:center;
+}
+
+header{
+    background:linear-gradient(90deg,#ff007a,#ff7ad9);
+    padding:20px;
+    font-size:2rem;
+    font-weight:bold;
+}
+
+.container{
+    padding:20px;
+}
+
+input{
+    width:90%;
+    max-width:500px;
+    padding:12px;
+    border:none;
+    border-radius:10px;
+}
+
+button{
+    margin-top:15px;
+    padding:14px 28px;
+    border:none;
+    border-radius:10px;
+    background:#ff007a;
+    color:white;
+    font-size:18px;
+    cursor:pointer;
+}
+
+#miner{
+    display:none;
+    margin-top:20px;
+}
+
+.unicorn{
+    font-size:70px;
+    animation:dance 1s infinite alternate;
+}
+
+@keyframes dance{
+    from{transform:translateX(-20px) rotate(-8deg);}
+    to{transform:translateX(20px) rotate(8deg);}
+}
+
+.progress{
+    width:80%;
+    max-width:700px;
+    height:30px;
+    background:#333;
+    margin:20px auto;
+    border-radius:20px;
+    overflow:hidden;
+}
+
+.bar{
+    width:0%;
+    height:100%;
+    background:linear-gradient(90deg,#ff007a,#ff7ad9);
+}
+
+.status{
+    font-size:24px;
+    margin:15px;
+}
+
+.reward{
+    font-size:28px;
+    color:#ff7ad9;
+    margin-top:15px;
+}
+</style>
+</head>
+<body>
+
+<header>
+🦄 UNISWAP TOKEN POLYGON SIMULATOR
+</header>
+
+<div class="container">
+
+<h2>Enter Your Polygon Address First</h2>
+
+<input
+id="wallet"
+placeholder="Paste Polygon Wallet Address">
+
+<br>
+
+<button onclick="startMining()">
+Start Uniswap Mining
+</button>
+
+<div id="miner">
+
+<div class="unicorn" id="unicorn">
+🦄
+</div>
+
+<div class="status" id="status">
+Preparing Unicorn...
+</div>
+
+<div class="progress">
+<div class="bar" id="bar"></div>
+</div>
+
+<div class="reward" id="reward">
+0.000 UNI
+</div>
+
+</div>
+
+</div>
+
+<script>
+
+let progress = 0;
+let uni = 0;
+
+const actions = [
+"🦄 Unicorn neighing...",
+"🦄 Unicorn dancing...",
+"🦄 Unicorn jumping...",
+"🦄 Unicorn spinning...",
+"🦄 Unicorn collecting UNI...",
+"🦄 Unicorn racing through rainbow..."
+];
+
+function startMining(){
+
+const wallet =
+document.getElementById("wallet").value.trim();
+
+if(wallet.length < 20){
+alert("Please enter your Polygon address first.");
+return;
+}
+
+document.getElementById("miner").style.display="block";
+
+setInterval(()=>{
+
+progress++;
+
+if(progress>100){
+progress=0;
+}
+
+document.getElementById("bar").style.width =
+progress + "%";
+
+document.getElementById("status").innerHTML =
+actions[Math.floor(Math.random()*actions.length)];
+
+uni += Math.random()*0.2;
+
+document.getElementById("reward").innerHTML =
+uni.toFixed(3) + " UNI";
+
+},200);
+
+}
+</script>
+
+</body>
+</html>

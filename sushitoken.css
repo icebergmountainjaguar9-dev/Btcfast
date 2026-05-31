@@ -1,0 +1,84 @@
+body{
+    background:#02071e;
+    color:white;
+    font-family:Arial,sans-serif;
+    text-align:center;
+    margin:0;
+}
+
+.container{
+    padding:40px 20px;
+}
+
+.wallet-box{
+    margin:30px auto;
+    max-width:500px;
+}
+
+input{
+    width:100%;
+    padding:14px;
+    border-radius:12px;
+    border:none;
+    font-size:16px;
+}
+
+button{
+    width:100%;
+    max-width:800px;
+    padding:18px;
+    border:none;
+    border-radius:20px;
+    font-size:22px;
+    color:white;
+    background:#7276ff;
+    cursor:pointer;
+}
+
+#status{
+    margin-top:25px;
+    font-size:18px;
+}
+
+.sushi-animation{
+    position:relative;
+    height:120px;
+    overflow:hidden;
+}
+
+.sashimi{
+    position:absolute;
+    font-size:60px;
+    animation:rollRight 6s linear infinite;
+}
+
+.nori{
+    position:absolute;
+    font-size:60px;
+    top:50px;
+    animation:rollLeft 7s linear infinite;
+}
+
+@keyframes rollRight{
+    0%{
+        left:-100px;
+        transform:rotate(0deg);
+    }
+
+    100%{
+        left:100%;
+        transform:rotate(720deg);
+    }
+}
+
+@keyframes rollLeft{
+    0%{
+        left:100%;
+        transform:rotate(0deg);
+    }
+
+    100%{
+        left:-100px;
+        transform:rotate(-720deg);
+    }
+}

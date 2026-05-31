@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Mine Toucan Protocol</title>
+
+<style>
+body{
+    margin:0;
+    background:#0d1b14;
+    color:white;
+    font-family:Arial,sans-serif;
+    text-align:center;
+}
+
+header{
+    background:#13261c;
+    padding:15px;
+    font-size:28px;
+    font-weight:bold;
+}
+
+.container{
+    max-width:900px;
+    margin:auto;
+    padding:20px;
+}
+
+input{
+    width:80%;
+    max-width:500px;
+    padding:12px;
+    border-radius:8px;
+    border:none;
+}
+
+button{
+    margin:10px;
+    padding:12px 24px;
+    border:none;
+    border-radius:8px;
+    cursor:pointer;
+    font-size:18px;
+}
+
+.mineBtn{
+    background:#27ae60;
+    color:white;
+}
+
+.releaseBtn{
+    background:#3498db;
+    color:white;
+}
+
+.scene{
+    position:relative;
+    width:500px;
+    max-width:95%;
+    height:260px;
+    margin:30px auto;
+    overflow:hidden;
+}
+
+.toucan{
+    position:absolute;
+    left:120px;
+    top:80px;
+    animation:bob 2s infinite;
+}
+
+.body{
+    width:90px;
+    height:90px;
+    background:#111;
+    border-radius:50%;
+    position:absolute;
+}
+
+.beak{
+    width:120px;
+    height:35px;
+    background:orange;
+    position:absolute;
+    left:70px;
+    top:25px;
+    border-radius:20px;
+}
+
+.eye{
+    width:12px;
+    height:12px;
+    background:white;
+    border-radius:50%;
+    position:absolute;
+    top:25px;
+    left:20px;
+}
+
+.fruit{
+    width:25px;
+    height:25px;
+    background:red;
+    border-radius:50%;
+    position:absolute;
+    left:420px;
+    top:110px;
+    animation:fruitMove 4s linear infinite;
+}
+
+@keyframes fruitMove{
+    0%{
+        left:420px;
+        opacity:1;
+    }
+    80%{
+        left:220px;
+        opacity:1;
+    }
+    100%{
+        left:180px;
+        opacity:0;
+    }
+}
+
+@keyframes bob{
+    0%{transform:translateY(0);}
+    50%{transform:translateY(-10px);}
+    100%{transform:translateY(0);}
+}
+
+#balance{
+    font-size:24px;
+    margin-top:20px;
+}
+</style>
+</head>
+
+<body>
+
+<header>🐦 Mine Toucan Protocol</header>
+
+<div class="container">
+
+<h2>Toucan Protocol Mining Simulation</h2>
+
+<input
+id="wallet"
+placeholder="Enter Toucan Polygon Address">
+
+<br>
+
+<button class="mineBtn" onclick="startMining()">
+Start Mining
+</button>
+
+<button class="releaseBtn" onclick="releaseToucan()">
+Release Toucan
+</button>
+
+<div class="scene">
+
+<div class="toucan">
+    <div class="body"></div>
+    <div class="eye"></div>
+    <div class="beak"></div>
+</div>
+
+<div class="fruit"></div>
+
+</div>
+
+<div id="balance">
+0.0000 TOUCAN
+</div>
+
+<div id="status"></div>
+
+</div>
+
+<script>
+let mining=false;
+let toucanBalance=0;
+
+function startMining(){
+
+    let wallet=document.getElementById("wallet").value.trim();
+
+    if(wallet===""){
+        alert("Enter your Toucan Polygon address first.");
+        return;
+    }
+
+    if(mining) return;
+
+    mining=true;
+
+    setInterval(function(){
+
+        toucanBalance += Math.random()*2;
+
+        document.getElementById("balance").innerHTML=
+        toucanBalance.toFixed(4)+" TOUCAN";
+
+    },1000);
+}
+
+function releaseToucan(){
+
+    let wallet=document.getElementById("wallet").value.trim();
+
+    if(wallet===""){
+        alert("Enter your Toucan Polygon address.");
+        return;
+    }
+
+    document.getElementById("status").innerHTML=
+    "Simulated release of "+
+    toucanBalance.toFixed(4)+
+    " TOUCAN to:<br>"+wallet;
+
+    toucanBalance=0;
+
+    document.getElementById("balance").innerHTML=
+    "0.0000 TOUCAN";
+}
+</script>
+
+</body>
+</html>

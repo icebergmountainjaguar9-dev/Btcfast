@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TRON TRX Mining Simulator</title>
+
+<style>
+body{
+    margin:0;
+    background:#111827;
+    color:white;
+    font-family:Arial,sans-serif;
+    text-align:center;
+}
+
+header{
+    background:#e50914;
+    padding:20px;
+    font-size:2rem;
+    font-weight:bold;
+}
+
+.container{
+    padding:20px;
+}
+
+input{
+    width:90%;
+    max-width:500px;
+    padding:12px;
+    border-radius:10px;
+    border:none;
+}
+
+button{
+    margin-top:15px;
+    padding:14px 28px;
+    border:none;
+    border-radius:10px;
+    background:#e50914;
+    color:white;
+    font-size:18px;
+    cursor:pointer;
+}
+
+#miner{
+    display:none;
+    margin-top:20px;
+}
+
+.progress{
+    width:80%;
+    max-width:700px;
+    height:30px;
+    background:#333;
+    border-radius:20px;
+    overflow:hidden;
+    margin:auto;
+}
+
+.bar{
+    width:0%;
+    height:100%;
+    background:linear-gradient(90deg,#ff0000,#ff6666);
+}
+
+.milkshake{
+    font-size:70px;
+    margin:20px;
+    animation:shake 1s infinite alternate;
+}
+
+@keyframes shake{
+    from{transform:rotate(-10deg);}
+    to{transform:rotate(10deg);}
+}
+
+.status{
+    font-size:22px;
+    margin:15px;
+}
+
+.reward{
+    font-size:28px;
+    color:#ff6666;
+    margin-top:15px;
+}
+</style>
+</head>
+<body>
+
+<header>
+⚡ TRON (TRX) MINING SIMULATOR
+</header>
+
+<div class="container">
+
+<h2>Enter Your TRON (TRX) Address First</h2>
+
+<input
+id="wallet"
+placeholder="Paste TRON (TRX) Wallet Address">
+
+<br>
+
+<button onclick="startMining()">
+Start TRX Mining
+</button>
+
+<div id="miner">
+
+<div class="milkshake" id="milkshake">
+🥤
+</div>
+
+<div class="status" id="status">
+Preparing Milkshake...
+</div>
+
+<div class="progress">
+<div class="bar" id="bar"></div>
+</div>
+
+<div class="reward" id="reward">
+0.000 TRX
+</div>
+
+</div>
+
+</div>
+
+<script>
+
+let trx = 0;
+let progress = 0;
+
+const shakes = [
+{
+emoji:"🍓🥤",
+text:"Making Strawberry Milkshake..."
+},
+{
+emoji:"☕🥤",
+text:"Making Vanilla Coffee Milkshake..."
+},
+{
+emoji:"⚫⚪🥤",
+text:"Making Black & White Milkshake..."
+},
+{
+emoji:"🍌🥤",
+text:"Making Banana Milkshake..."
+}
+];
+
+function startMining(){
+
+const wallet =
+document.getElementById("wallet").value.trim();
+
+if(!wallet.startsWith("T") || wallet.length < 34){
+alert("Please enter a valid TRON (TRX) address.");
+return;
+}
+
+document.getElementById("miner").style.display = "block";
+
+setInterval(()=>{
+
+progress++;
+
+if(progress > 100){
+progress = 0;
+}
+
+document.getElementById("bar").style.width =
+progress + "%";
+
+const shake =
+shakes[Math.floor(Math.random()*shakes.length)];
+
+document.getElementById("milkshake").innerHTML =
+shake.emoji;
+
+document.getElementById("status").innerHTML =
+shake.text;
+
+trx += Math.random() * 0.25;
+
+document.getElementById("reward").innerHTML =
+trx.toFixed(3) + " TRX";
+
+},250);
+
+}
+</script>
+
+</body>
+</html>

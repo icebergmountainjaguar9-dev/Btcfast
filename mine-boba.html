@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Boba Token Polygon Scan Mining</title>
+
+<style>
+body{
+    background:#081018;
+    color:white;
+    font-family:Arial,sans-serif;
+    text-align:center;
+    margin:0;
+}
+
+.header{
+    background:#6c63ff;
+    padding:20px;
+    font-size:32px;
+    font-weight:bold;
+}
+
+.container{
+    margin:30px auto;
+    max-width:900px;
+}
+
+input{
+    width:80%;
+    padding:15px;
+    font-size:18px;
+    border-radius:10px;
+    border:none;
+}
+
+button{
+    margin-top:15px;
+    padding:15px 40px;
+    font-size:20px;
+    border:none;
+    border-radius:10px;
+    background:#6c63ff;
+    color:white;
+    cursor:pointer;
+}
+
+#status{
+    margin-top:25px;
+    font-size:22px;
+}
+
+#balance{
+    margin-top:15px;
+    font-size:40px;
+    color:#00ff99;
+}
+</style>
+</head>
+
+<body>
+
+<div class="header">
+🧋 Boba Token Polygon Scan Mining
+</div>
+
+<div class="container">
+
+<h2>Enter Polygon Address</h2>
+
+<input
+id="polygonAddress"
+placeholder="0x..."
+type="text">
+
+<br>
+
+<button onclick="startMining()">
+Start Mining
+</button>
+
+<div id="status">
+Waiting...
+</div>
+
+<div id="balance">
+0 BOBA
+</div>
+
+</div>
+
+<script src="boba-miner.js"></script>
+
+</body>
+</html>

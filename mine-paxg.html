@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mine Pax Gold (PAXG)</title>
+
+<style>
+body{
+    font-family:Arial,sans-serif;
+    background:linear-gradient(to bottom,#fff8dc,#ffd700);
+    text-align:center;
+    margin:0;
+    overflow-x:hidden;
+}
+
+h1{
+    color:#8b7500;
+    margin-top:20px;
+}
+
+#goldMine{
+    width:320px;
+    height:320px;
+    margin:20px auto;
+    position:relative;
+    overflow:hidden;
+    border-radius:20px;
+    background:#fff3a0;
+    border:4px solid gold;
+}
+
+.gold{
+    position:absolute;
+    font-size:40px;
+    animation:fall linear infinite;
+}
+
+@keyframes fall{
+    from{
+        transform:translateY(-60px) rotate(0deg);
+    }
+    to{
+        transform:translateY(360px) rotate(360deg);
+    }
+}
+
+button{
+    padding:15px 30px;
+    border:none;
+    border-radius:12px;
+    background:gold;
+    color:black;
+    font-size:18px;
+    cursor:pointer;
+}
+
+#status{
+    margin-top:20px;
+    font-size:22px;
+    font-weight:bold;
+}
+</style>
+</head>
+<body>
+
+<h1>🏆 Mine Pax Gold (PAXG)</h1>
+
+<p>Enter your Polygon wallet address:</p>
+
+<input
+id="wallet"
+type="text"
+placeholder="0x..."
+style="width:300px;padding:10px;border-radius:10px;"
+>
+
+<div id="goldMine"></div>
+
+<button onclick="startMining()">Start Mining</button>
+
+<div id="status">Waiting...</div>
+
+<script>
+
+function createGold(){
+
+    const mine=document.getElementById("goldMine");
+
+    const gold=document.createElement("div");
+
+    gold.className="gold";
+
+    const icons=["🥇","🏆","💰","🪙"];
+
+    gold.innerHTML=
+      icons[Math.floor(Math.random()*icons.length)];
+
+    gold.style.left=Math.random()*280+"px";
+
+    gold.style.animationDuration=
+      (2+Math.random()*3)+"s";
+
+    mine.appendChild(gold);
+
+    setTimeout(()=>{
+        gold.remove();
+    },5000);
+}
+
+let mining=false;
+
+function startMining(){
+
+    const wallet=
+      document.getElementById("wallet").value.trim();
+
+    if(wallet===""){
+        alert("Enter Polygon wallet address first.");
+        return;
+    }
+
+    if(mining) return;
+
+    mining=true;
+
+    document.getElementById("status")
+      .innerHTML="⛏️ Mining PAXG Simulation Running";
+
+    setInterval(createGold,200);
+}
+</script>
+
+</body>
+</html>

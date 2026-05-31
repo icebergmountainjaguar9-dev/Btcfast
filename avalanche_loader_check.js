@@ -1,0 +1,3 @@
+alert(
+  "AVALANCHE SCRIPT LOADED"
+);
